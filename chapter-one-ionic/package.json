@@ -1,0 +1,59 @@
+{
+  "name": "selfie-tutor-",
+  "description": "Selfie Tutor",
+  "version": "0.0.001",
+  "author": {
+    "name" : "jlw",
+    "email" : "jonathanlouiswerber@gmail.com",
+    "url" : "https://github.com/jonwerber/selfie-tutor-"
+  },
+  "scripts": {
+    "webpack": "webpack",
+    "watch": "webpack --watch",
+    "server": "webpack-dev-server --content-base app/ --colors --hot --inline --display-error-details --port 3000",
+    "docs": "typedoc  --options typedoc.json  app/**/*.js",
+    "start": "npm run server",
+    "cordova": "node ./scripts/cordova.js --command",
+    "build": "gulp build && NODE_ENV=production webpack -p --config webpack.production.config.js --colors --json --progress --display-chunks --display-reasons --display-error-details --display-modules",
+    "bundle": "npm run build && npm run cordova --command build ios && npm run cordova --command run ios --device",
+    "bundle-android": "npm run build && npm run cordova --command build android && npm run cordova --command run android"
+  },
+  "dependencies": {
+    "angular2": "^2.0.0-beta.0",
+    "colors": "^1.1.2",
+    "es6-promise": "^3.0.2",
+    "es6-shim": "0.33.6",
+    "inquirer": "0.11.0",
+    "lodash": "3.10.1",
+    "q": "1.4.1",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.0",
+    "shelljs": "0.5.3",
+    "zone.js": "0.5.10",
+    "ionic-framework": "2.0.0-alpha.44",
+    "livereload-js": "^2.2.2"
+  },
+  "devDependencies": {
+    "autoprefixer-loader": "^3.1.0",
+    "awesome-typescript-loader": "0.12.0-rc.2",
+    "css-loader": "^0.22.0",
+    "del": "^2.1.0",
+    "file-loader": "^0.8.4",
+    "gulp": "^3.9.0",
+    "node-sass": "^3.4.2",
+    "sass-loader": "^3.1.1",
+    "style-loader": "^0.13.0",
+    "resolve-url-loader": "^1.4.2",
+    "typescript": "1.5.3",
+    "url-loader": "^0.5.6",
+    "webpack": "^1.12.4",
+    "webpack-dev-server": "^1.12.1",
+    "chalk": "^1.1.1",
+    "cordova-lib": "^5.4.0"
+  },
+  "cordovaPlugins": [
+    "cordova-plugin-whitelist",
+    "cordova-plugin-device"
+  ],
+  "cordovaPlatforms": ["ios"]
+}
